@@ -1,3 +1,5 @@
+const db = require('../../db/db.json');
+const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const app = require('express').Router();
 const {
@@ -7,9 +9,8 @@ const {
 } = require('../../helpers/fsUtils');
 
 app.get('/', (req, res) => {
-  console.log(req)
   readFromFile(path.join(__dirname, '../../db/db.json')).then((data) => {
-    res.json(data)
+    res.json(JSON.parse(data))
   })
 })
 
@@ -31,8 +32,13 @@ app.post('/', (req, res) => {
   if (req.body) {
     const newNote = {
       title,
-      text
+      text,
+      id: uuidv4(),
     };
+    // const receivedNotes = db;
+    // receivedNotes.push(newNote);
+    // console.log(receivedNotes);
+    // fs.writeFileSync(path.join(__dirname, '../../db/db.json'), JSON.stringify(receivedNotes));
     readAndAppend(newNote, path.join(__dirname, '../../db/db.json'));
     res.json('Note added successfully');
   } else {
@@ -46,6 +52,7 @@ app.delete('/:id', (req, res) => {
     .then((data) => JSON.parse(data))
     .then((json) => {
       const result = json.filter((note) => note.id !== noteId);
+      console.log(result);
       writeToFile(path.join(__dirname, '../../db/db.json'), result);
       res.json(`Item ${noteId} has been deleted 🗑️`);
     });
