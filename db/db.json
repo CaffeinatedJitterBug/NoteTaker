@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "title": "Finish Note Taker",
+        "text": "Finish writing routes for note taking app.",
+        "id": "3940b7e2-719f-4a0c-9705-68db3a67060f"
+    },
+    {
+        "title": "Drink Away Coding Problems",
+        "text": "But get off of all the meds that react with alcohol first",
+        "id": "d0391bf8-3f09-4914-9b6a-720861e309eb"
+    },
+    {
+        "title": "Prioritize BF Over Code",
+        "text": "Just after I write one more line of code...",
+        "id": "6599e46f-6a4e-49d9-b2a4-b7c85724b334"
+    },
+    {
+        "title": "Remember To Delete This",
+        "text": "The police can never find out what I did...",
+        "id": "dcb61330-e2ad-47c3-a09f-6127aa103215"
+    }
+]
